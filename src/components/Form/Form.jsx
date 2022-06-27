@@ -8,7 +8,7 @@ export default function Form({ className, link, children }) {
                {children}
                <Button className={classes.button}><span>Submit now</span></Button>
 
-               <div class="info">
+               <div className={classes.info}>
                     {className === "signup" ? "Already" : "Don't"} have an account? <Link to={link}>{className === "signup" ? "Login" : "Signup"}</Link> instead.
                </div>
           </form>
