@@ -21,7 +21,8 @@ export default function App() {
                                         element={
                                              route.type === "public" ? <PublicRoute>{<route.element />}</PublicRoute> :
                                                   route.type === "private" ? <PrivateRoute>{<route.element />}</PrivateRoute> :
-                                                       <route.element />} />))}
+                                                       <route.element />} />
+                              ))}
                          </Routes>
                     </Main>
                </AuthProvider>
