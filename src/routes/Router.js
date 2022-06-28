@@ -14,21 +14,25 @@ const routes = [
      {
           path: "/login",
           name: "Login page",
+          type: "public",
           element: Login
      },
      {
           path: "/quiz",
           name: "Quiz page",
+          type: "private",
           element: Quiz
      },
      {
           path: "/result",
           name: "Result page",
+          type: "private",
           element: Result
      },
      {
           path: "/signup",
           name: "Signup page",
+          type: "public",
           element: Signup
      },
      {
