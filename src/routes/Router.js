@@ -18,13 +18,13 @@ const routes = [
           element: Login
      },
      {
-          path: "/quiz",
+          path: "/quiz/:id",
           name: "Quiz page",
           type: "private",
           element: Quiz
      },
      {
-          path: "/result",
+          path: "/result/:id",
           name: "Result page",
           type: "private",
           element: Result

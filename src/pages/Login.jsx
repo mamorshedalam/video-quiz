@@ -4,31 +4,12 @@ import Form from '../components/Form/Form';
 import Illustration from '../components/Illustration/Illustration';
 import TextInput from '../components/TextInput/TextInput';
 import { useAuth } from '../contexts/AuthContext';
+import { initialState, reducer } from '../reducers/statusReducer';
 
-const initialState = {
-     loading: false,
-     error: ""
-}
-
-const reducer = (state, action) => {
-     switch (action.type) {
-          case "SUCCESS":
-               return {
-                    loading: true,
-                    error: ""
-               }
-          case "FAIL":
-               return {
-                    loading: false,
-                    error: "Fail to login"
-               }
-          default: return state;
-     }
-}
 export default function Login() {
-     const { login } = useAuth();
-     const history = useNavigate();
      const [state, dispatch] = useReducer(reducer, initialState);
+     const history = useNavigate();
+     const { login } = useAuth();
      const [user, setUser] = useState({
           email: "",
           password: ""
@@ -38,11 +19,11 @@ export default function Login() {
           e.preventDefault();
 
           try {
-               dispatch({ type: "SUCCESS" });
+               dispatch({ type: "SUCCESS", loading: true });
                await login(user.email, user.password);
                history('/')
           } catch (err) {
-               dispatch({ type: "FAIL" });
+               dispatch({ type: "FAIL", error: "Fail to Login, Try Again!" });
           }
      }
 
@@ -58,10 +39,9 @@ export default function Login() {
                <h1>Create an Account</h1>
                <div className="column">
                     <Illustration />
-                    <Form className="login" link="/signup" onSubmit={handleSubmit} show={state.loading}>
+                    <Form className="login" link="/signup" onSubmit={handleSubmit} show={state.loading} error={state.error}>
                          <TextInput type="text" name="email" placeholder="Enter name" text="alternate_email" onBlur={handleChange} />
                          <TextInput type="password" name="password" placeholder="Enter password" text="lock" onBlur={handleChange} />
-                         {state.error && <p className="error">{state.error}</p>}
                     </ Form>
                </div>
           </>
