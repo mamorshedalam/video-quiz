@@ -37,7 +37,6 @@ export default function Quiz() {
      const [qna, dispatch] = useReducer(reducer, initialState);
      const location = useLocation();
      const { state } = location;
-     console.log(state);
 
      useEffect(() => {
           dispatch({
