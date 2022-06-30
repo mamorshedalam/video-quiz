@@ -3,7 +3,7 @@ export const initialState = {
      error: ""
 }
 
-export const reducer = (state, action) => {
+export const reducer = (status, action) => {
      switch (action.type) {
           case "SUCCESS":
                return {
@@ -15,6 +15,6 @@ export const reducer = (state, action) => {
                     loading: true,
                     error: action.error
                }
-          default: return state;
+          default: return status;
      }
 }

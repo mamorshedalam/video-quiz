@@ -33,7 +33,7 @@ export default function Quiz() {
      const history = useNavigate();
      const { currentUser } = useAuth();
      const [currentQuiz, setCurrentQuiz] = useState(0);
-     const { state, questions } = useQuestions(id);
+     const { status, questions } = useQuestions(id);
      const [qna, dispatch] = useReducer(reducer, initialState);
 
      useEffect(() => {
@@ -85,14 +85,14 @@ export default function Quiz() {
 
      return (
           <>
-               {state.error && <p style={center}>There was an error</p>}
-               {!state.loading && qna !== null && qna.length === 0 && <p style={center}>No data found</p>}
-               {state.loading && <p style={center}>Loading...</p>}
+               {status.error && <p style={center}>There was an error</p>}
+               {!status.loading && qna !== null && qna.length === 0 && <p style={center}>No data found</p>}
+               {status.loading && <p style={center}>Loading...</p>}
                {qna !== null && qna.length > 0 && (
                     <>
                          <h1>{qna[currentQuiz].title}</h1>
                          <h4>Question can have multiple answers</h4>
-                         <Answers options={qna[currentQuiz].options} handleChange={handleAnswerChange} />
+                         <Answers input={true} options={qna[currentQuiz].options} handleChange={handleAnswerChange} />
                          <ProgressBar next={nextQuestion} prev={prevQuestion} submit={submitQuestion} progress={percentage} />
                          <MiniPlayer />
                     </>

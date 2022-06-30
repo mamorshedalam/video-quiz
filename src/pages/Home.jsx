@@ -6,7 +6,7 @@ import useVideoList from '../hooks/useVideoList';
 
 export default function Home() {
      const [page, setPage] = useState(1);
-     const { state, hasMore, videos } = useVideoList(page);
+     const { status, hasMore, videos } = useVideoList(page);
 
      const center = {
           textAlign: "center",
@@ -14,9 +14,9 @@ export default function Home() {
 
      return (
           <>
-               {state.error && <p style={center}>There wsa an error!</p>}
-               {!state.loading && videos.length === 0 && <p style={center}>No data found</p>}
-               {state.loading && <p style={center}>Loading...</p>}
+               {status.error && <p style={center}>There wsa an error!</p>}
+               {!status.loading && videos.length === 0 && <p style={center}>No data found</p>}
+               {status.loading && <p style={center}>Loading...</p>}
                {videos.length > 0 && (
                     <InfiniteScroll dataLength={videos.length} hasMore={hasMore} next={() => setPage(page + 8)}>
                          {videos.map(video => (

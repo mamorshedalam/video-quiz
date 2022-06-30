@@ -1,8 +1,8 @@
-export default function Qtitle({ className }) {
+export default function Qtitle({ className, title }) {
      return (
           <div className={className}>
                <span className="material-icons-outlined"> help_outline </span>
-               Here goes the question from Learn with Sumit?
+               {title}
           </div>
      );
 }

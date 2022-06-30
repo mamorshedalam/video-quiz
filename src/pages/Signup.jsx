@@ -8,7 +8,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { initialState, reducer } from '../reducers/statusReducer';
 
 export default function Signup() {
-     const [state, dispatch] = useReducer(reducer, initialState);
+     const [status, dispatch] = useReducer(reducer, initialState);
      const { signup } = useAuth();
      const history = useNavigate();
      const [user, setUser] = useState({
@@ -46,7 +46,7 @@ export default function Signup() {
                <h1>Create an Account</h1>
                <div className="column">
                     <Illustration />
-                    <Form className="signup" link="/login" onSubmit={handleSubmit} show={state.loading} error={state.error}>
+                    <Form className="signup" link="/login" onSubmit={handleSubmit} show={status.loading} error={status.error}>
                          <TextInput type="text" name="username" placeholder="Enter name" text="person" onBlur={handleChange} />
                          <TextInput type="text" name="email" placeholder="Enter email" text="alternate_email" onBlur={handleChange} />
                          <TextInput type="password" name="password" placeholder="Enter password" text="lock" onBlur={handleChange} />

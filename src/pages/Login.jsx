@@ -7,7 +7,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { initialState, reducer } from '../reducers/statusReducer';
 
 export default function Login() {
-     const [state, dispatch] = useReducer(reducer, initialState);
+     const [status, dispatch] = useReducer(reducer, initialState);
      const history = useNavigate();
      const { login } = useAuth();
      const [user, setUser] = useState({
@@ -39,7 +39,7 @@ export default function Login() {
                <h1>Create an Account</h1>
                <div className="column">
                     <Illustration />
-                    <Form className="login" link="/signup" onSubmit={handleSubmit} show={state.loading} error={state.error}>
+                    <Form className="login" link="/signup" onSubmit={handleSubmit} show={status.loading} error={status.error}>
                          <TextInput type="text" name="email" placeholder="Enter name" text="alternate_email" onBlur={handleChange} />
                          <TextInput type="password" name="password" placeholder="Enter password" text="lock" onBlur={handleChange} />
                     </ Form>

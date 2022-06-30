@@ -3,7 +3,7 @@ import { useEffect, useReducer, useState } from "react";
 import { initialState, reducer } from '../reducers/statusReducer';
 
 export default function useVideoList(page) {
-     const [state, dispatch] = useReducer(reducer, initialState);
+     const [status, dispatch] = useReducer(reducer, initialState);
      const [videos, setVideos] = useState([]);
      const [hasMore, setHasMore] = useState(true);
 
@@ -33,5 +33,5 @@ export default function useVideoList(page) {
           fetchVideos()
      }, [page])
 
-     return { state, hasMore, videos }
+     return { status, hasMore, videos }
 }

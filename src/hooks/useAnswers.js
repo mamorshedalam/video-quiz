@@ -2,25 +2,25 @@ import { get, getDatabase, orderByKey, query, ref } from "firebase/database";
 import { useEffect, useReducer, useState } from "react";
 import { initialState, reducer } from '../reducers/statusReducer';
 
-export default function useQuestions(videoID) {
+export default function useAnswers(videoID) {
      const [status, dispatch] = useReducer(reducer, initialState);
-     const [questions, setQuestions] = useState([]);
+     const [answers, setAnswers] = useState([]);
 
      useEffect(() => {
           async function fetchVideos() {
-               const url = "quiz/" + videoID + "/questions";
+               const url = "answers/" + videoID + "/questions";
                const db = getDatabase();
-               const quizRef = ref(db, url);
-               const quizQuery = query(quizRef, orderByKey());
+               const answerRef = ref(db, url);
+               const answerQuery = query(answerRef, orderByKey());
 
                try {
                     dispatch({ type: "SUCCESS", loading: false });
-                    const snapshot = await get(quizQuery);
+                    const snapshot = await get(answerQuery);
                     if (snapshot.exists()) {
-                         setQuestions((prevQuestion) => {
-                              if (prevQuestion.length < 4) {
-                                   return [...prevQuestion, ...Object.values(snapshot.val())]
-                              } return prevQuestion;
+                         setAnswers((prevAnswer) => {
+                              if (prevAnswer.length < 4) {
+                                   return [...prevAnswer, ...Object.values(snapshot.val())]
+                              } return prevAnswer;
                          });
                     } else {
                     }
@@ -34,5 +34,5 @@ export default function useQuestions(videoID) {
           fetchVideos()
      }, [videoID])
 
-     return { status, questions }
+     return { status, answers }
 }
