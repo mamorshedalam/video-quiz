@@ -1,7 +1,7 @@
 import { getDatabase, ref, set } from 'firebase/database';
 import _ from 'lodash';
 import { useEffect, useReducer, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Answers from "../components/Answers/Answers";
 import MiniPlayer from "../components/MiniPlayer/MiniPlayer";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
@@ -35,6 +35,9 @@ export default function Quiz() {
      const [currentQuiz, setCurrentQuiz] = useState(0);
      const { status, questions } = useQuestions(id);
      const [qna, dispatch] = useReducer(reducer, initialState);
+     const location = useLocation();
+     const { state } = location;
+     console.log(state);
 
      useEffect(() => {
           dispatch({
@@ -94,7 +97,7 @@ export default function Quiz() {
                          <h4>Question can have multiple answers</h4>
                          <Answers input={true} options={qna[currentQuiz].options} handleChange={handleAnswerChange} />
                          <ProgressBar next={nextQuestion} prev={prevQuestion} submit={submitQuestion} progress={percentage} />
-                         <MiniPlayer />
+                         <MiniPlayer id={id} title={state} />
                     </>
                )}
           </>

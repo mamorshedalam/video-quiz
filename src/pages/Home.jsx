@@ -20,7 +20,7 @@ export default function Home() {
                {videos.length > 0 && (
                     <InfiniteScroll dataLength={videos.length} hasMore={hasMore} next={() => setPage(page + 8)}>
                          {videos.map(video => (
-                              video.noq > 0 ? <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID}>
+                              video.noq > 0 ? <Link to={`/quiz/${video.youtubeID}`} state={video.title} key={video.youtubeID}>
                                    <Video title={video.title} id={video.youtubeID} noq={video.noq} />
                               </Link> :
                                    <Video key={video.youtubeID} title={video.title} id={video.youtubeID} noq={video.noq} />
