@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# React Todo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Complete Single Page Application (SPA) or CRUD Application using React JS, React-Router, Redux, Redux-thunk, etc.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+1. Clone repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+https://github.com/ma-foyez/react-advance-task.git
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Go to the folder
 
-### `npm test`
+```bash
+cd react-advance-task
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install Node packages
 
-### `npm run build`
+```bash
+npm i
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Run Local server with development change waching...
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Open browser
 
-### `npm run eject`
+```bash
+http://localhost:3000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technology
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [x] JavaScript
+- [x] React JS
+- [x] Redux / Redux-thunk
+- [x] HTML / CSS
+- [x] Bootstrap
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Necessary API
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 1. Get Task List
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  Method: Get
+  https://todo-app37.herokuapp.com/loadTodo
+```
+## 2. Add New Task
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+```bash
+  Method: POST
+  https://todo-app37.herokuapp.com/addTodo
+```
+### Pass Object Data as parameters to store data
+```bash 
+     taskForm: {
+          Title: "",
+          Priority: "",
+        },
+```
+## 3. Update Single Task
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+```bash
+  Method: PATCH
+  https://todo-app37.herokuapp.com/updateTodo?id=${id}
+```
+### Pass Object Data as parameters to update data
+```bash 
+     taskForm: {
+          Title: "",
+          Priority: "",
+        },
+```
+## 4. Get Single Task
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+  Method: GET
+  https://todo-app37.herokuapp.com/singleTodo?id=${id}
+```
+## 5. Delete Single Task
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+  Method: DELETE
+  https://todo-app37.herokuapp.com/deleteTodo?id=${id}
+```
