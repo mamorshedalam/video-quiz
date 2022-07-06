@@ -1,7 +1,7 @@
-# React Todo
+## Video Quiz
 
-A Complete Single Page Application (SPA) or CRUD Application using React JS, React-Router, Redux, Redux-thunk, etc.
 
+A Complete Single Page Application (SPA) made in React JS. 
 ---
 
 ## Installation
