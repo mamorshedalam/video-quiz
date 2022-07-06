@@ -7,13 +7,13 @@
 1. Clone repository
 
 ```bash
-https://github.com/ma-foyez/react-advance-task.git
+https://github.com/mamorshedalam/video-quiz.git
 ```
 
 2. Go to the folder
 
 ```bash
-cd react-advance-task
+cd video-quiz
 ```
 
 3. Install Node packages
@@ -38,61 +38,6 @@ http://localhost:3000
 
 - [x] JavaScript
 - [x] React JS
-- [x] Redux / Redux-thunk
+- [x] Firebase
 - [x] HTML / CSS
-- [x] Bootstrap
 
-# Necessary API
-
-## 1. Get Task List
-
----
-
-```bash
-  Method: Get
-  https://todo-app37.herokuapp.com/loadTodo
-```
-## 2. Add New Task
-
----
-
-```bash
-  Method: POST
-  https://todo-app37.herokuapp.com/addTodo
-```
-### Pass Object Data as parameters to store data
-```bash 
-     taskForm: {
-          Title: "",
-          Priority: "",
-        },
-```
-## 3. Update Single Task
-
----
-
-```bash
-  Method: PATCH
-  https://todo-app37.herokuapp.com/updateTodo?id=${id}
-```
-### Pass Object Data as parameters to update data
-```bash 
-     taskForm: {
-          Title: "",
-          Priority: "",
-        },
-```
-## 4. Get Single Task
----
-
-```bash
-  Method: GET
-  https://todo-app37.herokuapp.com/singleTodo?id=${id}
-```
-## 5. Delete Single Task
----
-
-```bash
-  Method: DELETE
-  https://todo-app37.herokuapp.com/deleteTodo?id=${id}
-```
