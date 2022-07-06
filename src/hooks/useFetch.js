@@ -14,7 +14,6 @@ export default function useFetch(url, method, headers) {
                          headers: headers
                     });
                     const data = await response.json();
-                    console.log(data);
                     setResult(data);
 
                } catch (err) {
