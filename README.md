@@ -1,5 +1,5 @@
 # Video Quiz
-A Complete Single Page Application (SPA) made in React JS. 
+### A Complete Single Page Application (SPA) made in React JS. 
 
 ## Installation
 
